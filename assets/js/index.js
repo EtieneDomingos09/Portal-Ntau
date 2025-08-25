@@ -1,3 +1,14 @@
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+  const mobileNav = document.getElementById("mobileNav");
+  mobileNav.classList.toggle("active");
+}
+
+function closeMobileMenu() {
+  const mobileNav = document.getElementById("mobileNav");
+  mobileNav.classList.remove("active");
+}
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -80,4 +91,62 @@ const statsObserver = new IntersectionObserver(
   { threshold: 0.5 }
 );
 
-statsObserver.observe(statsSection);
+if (statsSection) {
+  statsObserver.observe(statsSection);
+}
+
+// FAQ Toggle
+function toggleFaq(button) {
+  const faqItem = button.parentElement;
+  const isActive = faqItem.classList.contains("active");
+
+  // Close all FAQ items
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  // Open clicked item if it wasn't active
+  if (!isActive) {
+    faqItem.classList.add("active");
+  }
+}
+
+// Form submission
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const service = formData.get("service");
+
+  // Create WhatsApp message
+  const message = `Olá! Meu nome é ${name}.
+            
+Gostaria de solicitar informações sobre: ${service}
+            
+Telefone para contato: ${phone}
+            
+Mensagem: ${formData.get("message")}`;
+
+  const whatsappUrl = `https://wa.me/244999999999?text=${encodeURIComponent(
+    message
+  )}`;
+
+  // Show success message
+  alert("Redirecionando para WhatsApp...");
+  window.open(whatsappUrl, "_blank");
+
+  // Reset form
+  event.target.reset();
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener("click", (e) => {
+  const mobileNav = document.getElementById("mobileNav");
+  const mobileBtn = document.querySelector(".mobile-menu-btn");
+
+  if (!mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+    mobileNav.classList.remove("active");
+  }
+});

@@ -7,7 +7,7 @@
     <title>NTAU - Conectando o Futuro</title>
 </head>
 <body>
-    <!-- Header -->
+   <!-- Header -->
     <header class="header">
         <nav class="nav">
             <a href="#home" class="logo">
@@ -24,22 +24,40 @@
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#services">Serviços</a></li>
+                <li><a href="#plans">Planos</a></li>
+                <li><a href="#coverage">Cobertura</a></li>
                 <li><a href="#about">Sobre</a></li>
-                <li><a href="#products">Produtos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
-            <button class="mobile-menu-btn">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </nav>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#home" onclick="closeMobileMenu()">Início</a></li>
+                <li><a href="#services" onclick="closeMobileMenu()">Serviços</a></li>
+                <li><a href="#plans" onclick="closeMobileMenu()">Planos</a></li>
+                <li><a href="#coverage" onclick="closeMobileMenu()">Cobertura</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">Sobre</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contato</a></li>
+            </ul>
+        </div>
     </header>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/244999999999?text=Olá! Gostaria de saber mais sobre os serviços da NTAU." class="whatsapp-btn" target="_blank" rel="noopener">
+        💬 WhatsApp
+    </a>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content fade-in">
-            <h1>Conectando o <span class="highlight">Futuro</span></h1>
-            <p>Internet ultrarrápida para sua casa e empresa, além de produtos tecnológicos de alta qualidade. Experimente a diferença NTAU.</p>
+            <h1>Internet de <span class="highlight">Fibra Óptica</span> em Luanda</h1>
+            <p>A internet mais rápida e estável de Angola. Conecte-se ao futuro com tecnologia de ponta e suporte técnico especializado 24/7.</p>
             <div class="cta-buttons">
-                <a href="#services" class="btn btn-primary">Nossos Serviços →</a>
-                <a href="#contact" class="btn btn-secondary">Fale Conosco</a>
+                <a href="#plans" class="btn btn-primary">Ver Planos →</a>
+                <a href="#contact" class="btn btn-secondary">Solicitar Orçamento</a>
             </div>
         </div>
     </section>
@@ -49,22 +67,127 @@
         <div class="container">
             <div class="section-title fade-in">
                 <h2>Nossos Serviços</h2>
-                <p>Soluções completas em conectividade e tecnologia para impulsionar seu crescimento</p>
+                <p>Soluções completas em conectividade e tecnologia para residências e empresas em Luanda</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card fade-in">
-                    <div class="service-icon">🌐</div>
+                    <div class="service-icon">📡</div>
                     <h3>Internet Fibra Óptica</h3>
-                    <p>Conexão de alta velocidade com tecnologia de fibra óptica para residências e empresas. Estabilidade garantida e suporte 24/7.</p>
-                    <a href="#contact" class="btn btn-primary">Contratar Agora</a>
+                    <p>Conexão ultrarápida com tecnologia 100% fibra óptica. Velocidades de até 1GB, instalação gratuita e suporte técnico especializado.</p>
+                    <a href="#plans" class="btn btn-primary">Ver Planos</a>
                 </div>
                 
                 <div class="service-card fade-in">
-                    <div class="service-icon">🛒</div>
-                    <h3>Loja Tech</h3>
-                    <p>E-commerce especializado em produtos tecnológicos, equipamentos de rede, dispositivos móveis e acessórios premium.</p>
-                    <a href="#products" class="btn btn-primary">Ver Produtos</a>
+                    <div class="service-icon">🛠️</div>
+                    <h3>Equipamentos de Rede</h3>
+                    <p>Venda de routers, switches, cabos, repetidores e acessórios de rede das melhores marcas do mercado.</p>
+                    <a href="#contact" class="btn btn-primary">Consultar Produtos</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔧</div>
+                    <h3>Suporte Técnico</h3>
+                    <p>Assistência técnica especializada 24/7, instalação profissional e manutenção preventiva para sua rede.</p>
+                    <a href="#contact" class="btn btn-primary">Solicitar Suporte</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="plans">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Nossos Planos de Internet</h2>
+                <p>Escolha o plano ideal para sua residência ou empresa com preços especiais para Luanda</p>
+            </div>
+            
+            <div class="plans-grid">
+                <div class="plan-card fade-in">
+                    <div class="plan-name">Casa</div>
+                    <div class="plan-speed">50MB</div>
+                    <div class="plan-price">15.000 Kz/mês</div>
+                    <ul class="plan-features">
+                        <li>Ideal para 3-4 pessoas</li>
+                        <li>Streaming em HD</li>
+                        <li>Instalação gratuita</li>
+                        <li>Suporte 24/7</li>
+                        <li>Wi-Fi incluído</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Contratar</a>
+                </div>
+                
+                <div class="plan-card popular fade-in">
+                    <div class="plan-name">Família</div>
+                    <div class="plan-speed">100MB</div>
+                    <div class="plan-price">25.000 Kz/mês</div>
+                    <ul class="plan-features">
+                        <li>Ideal para 5-7 pessoas</li>
+                        <li>Streaming 4K simultâneo</li>
+                        <li>Gaming online</li>
+                        <li>Instalação gratuita</li>
+                        <li>Suporte prioritário</li>
+                        <li>Wi-Fi mesh incluído</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Contratar</a>
+                </div>
+                
+                <div class="plan-card fade-in">
+                    <div class="plan-name">Empresarial</div>
+                    <div class="plan-speed">500MB</div>
+                    <div class="plan-price">75.000 Kz/mês</div>
+                    <ul class="plan-features">
+                        <li>Ideal para escritórios</li>
+                        <li>IP fixo incluído</li>
+                        <li>SLA garantido</li>
+                        <li>Suporte técnico dedicado</li>
+                        <li>Backup de conexão</li>
+                        <li>Configuração profissional</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section id="coverage" class="coverage">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Áreas de Cobertura</h2>
+                <p>Estamos presente nas principais regiões de Luanda com expansão contínua</p>
+            </div>
+            
+            <div class="coverage-grid">
+                <div class="coverage-area fade-in">
+                    <h3>🏙️ Luanda Centro</h3>
+                    <p>Cobertura completa no centro histórico e áreas administrativas</p>
+                </div>
+                
+                <div class="coverage-area fade-in">
+                    <h3>🌊 Ilha de Luanda</h3>
+                    <p>Internet de alta velocidade para a zona turística</p>
+                </div>
+                
+                <div class="coverage-area fade-in">
+                    <h3>🏘️ Maianga</h3>
+                    <p>Conectividade residencial e empresarial</p>
+                </div>
+                
+                <div class="coverage-area fade-in">
+                    <h3>🏢 Ingombota</h3>
+                    <p>Soluções especializadas para o distrito comercial</p>
+                </div>
+                
+                <div class="coverage-area fade-in">
+                    <h3>🏠 Samba</h3>
+                    <p>Internet fibra para condomínios e residências</p>
+                </div>
+                
+                <div class="coverage-area fade-in">
+                    <h3>📈 Em Expansão</h3>
+                    <p>Novas áreas sendo cobertas mensalmente</p>
                 </div>
             </div>
         </div>
@@ -75,11 +198,11 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item fade-in">
-                    <h3>5000+</h3>
+                    <h3>8000+</h3>
                     <p>Clientes Conectados</p>
                 </div>
                 <div class="stat-item fade-in">
-                    <h3>99.9%</h3>
+                    <h3>99.8%</h3>
                     <p>Uptime Garantido</p>
                 </div>
                 <div class="stat-item fade-in">
@@ -88,7 +211,108 @@
                 </div>
                 <div class="stat-item fade-in">
                     <h3>500+</h3>
-                    <p>Produtos Tech</p>
+                    <p>Equipamentos Disponíveis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>O que dizem nossos clientes</h2>
+                <p>Depoimentos reais de quem já escolheu a NTAU como provedor de internet</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "A internet da NTAU mudou completamente minha experiência online. Trabalho em casa e nunca mais tive problemas de conexão."
+                    </div>
+                    <div class="testimonial-author">Maria Santos</div>
+                    <div class="testimonial-role">Designer Gráfica, Maianga</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Para nossa empresa, a NTAU foi a solução perfeita. Velocidade excelente e suporte técnico sempre disponível."
+                    </div>
+                    <div class="testimonial-author">João Ferreira</div>
+                    <div class="testimonial-role">Diretor de TI, Ingombota</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Instalação rápida, preço justo e qualidade excepcional. Recomendo a NTAU para toda minha família."
+                    </div>
+                    <div class="testimonial-author">Ana Costa</div>
+                    <div class="testimonial-role">Estudante, Samba</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre nossos serviços e instalação</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Qual é o prazo para instalação?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O prazo médio de instalação é de 24 a 48 horas após a confirmação do pedido, dependendo da disponibilidade da infraestrutura na sua região.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        A instalação é gratuita?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, a instalação é totalmente gratuita para todos os planos residenciais. Incluímos também o roteador Wi-Fi sem custo adicional.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Como funciona o suporte técnico?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oferecemos suporte técnico 24/7 através do telefone, WhatsApp e chat online. Para planos empresariais, temos suporte presencial prioritário.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Posso trocar de plano posteriormente?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Claro! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações são aplicadas no próximo ciclo de faturamento.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Qual é a diferença entre fibra óptica e cabo comum?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A fibra óptica oferece velocidades muito superiores, maior estabilidade, menor latência e não sofre interferências como cabos de cobre tradicionais.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,13 +324,102 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h2>Sobre a NTAU</h2>
-                    <p>Somos uma empresa angolana dedicada a conectar pessoas e empresas ao futuro digital. Com tecnologia de ponta e atendimento humanizado, oferecemos soluções completas em conectividade.</p>
-                    <p>Nossa missão é democratizar o acesso à internet de qualidade e disponibilizar os melhores produtos tecnológicos para impulsionar o crescimento de nossos clientes.</p>
-                    <p>Desde residências até grandes corporações, a NTAU é sinônimo de confiança, inovação e excelência em serviços.</p>
+                    <p>Somos uma empresa angolana pioneira em tecnologia de fibra óptica, dedicada a conectar Luanda ao futuro digital com soluções inovadoras e atendimento de excelência.</p>
+                    <p>Desde nossa fundação, investimos continuamente em infraestrutura de ponta e capacitação técnica para oferecer a melhor experiência de conectividade em Angola.</p>
+                    <p>Nossa missão é democratizar o acesso à internet de alta qualidade e fornecer equipamentos tecnológicos que impulsionem o crescimento pessoal e empresarial de nossos clientes.</p>
+                    <a href="#contact" class="btn btn-primary">Conhecer Nossa História</a>
                 </div>
                 <div class="about-image fade-in">
-                    🚀
+                    🌍
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Entre em Contato</h2>
+                <p>Estamos prontos para conectar você ao futuro. Fale conosco agora!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Informações de Contato</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Endereço</strong><br>
+                            Rua Principal, Maianga<br>
+                            Luanda, Angola
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Telefone</strong><br>
+                            +244 999 999 999<br>
+                            +244 888 888 888
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>E-mail</strong><br>
+                            contato@ntau.co.ao<br>
+                            vendas@ntau.co.ao
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Horário de Atendimento</strong><br>
+                            Segunda à Sexta: 8h às 18h<br>
+                            Sábado: 8h às 14h
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Serviço de Interesse</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecione um serviço</option>
+                            <option value="internet-residencial">Internet Residencial</option>
+                            <option value="internet-empresarial">Internet Empresarial</option>
+                            <option value="equipamentos">Equipamentos de Rede</option>
+                            <option value="suporte">Suporte Técnico</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" placeholder="Descreva sua necessidade ou dúvida..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem →</button>
+                </form>
             </div>
         </div>
     </section>
@@ -114,45 +427,48 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container fade-in">
-            <h2>Pronto para se Conectar?</h2>
-            <p>Junte-se a milhares de clientes que já escolheram a NTAU como parceira tecnológica</p>
-            <a href="#contact" class="btn btn-white">Começar Agora →</a>
+            <h2>Pronto para a Melhor Internet de Luanda?</h2>
+            <p>Junte-se a milhares de angolanos que já escolheram a NTAU como parceira digital</p>
+            <a href="#plans" class="btn btn-white">Ver Planos Agora →</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>NTAU</h3>
-                    <p>Conectando o futuro através de tecnologia de ponta e atendimento excepcional.</p>
+                    <p>Conectando Luanda ao futuro através de tecnologia de fibra óptica de última geração e atendimento excepcional.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Serviços</h3>
                     <p><a href="#services">Internet Fibra Óptica</a></p>
-                    <p><a href="#products">Loja de Tecnologia</a></p>
-                    <p><a href="#services">Suporte Técnico</a></p>
+                    <p><a href="#plans">Planos Residenciais</a></p>
+                    <p><a href="#plans">Soluções Empresariais</a></p>
+                    <p><a href="#services">Equipamentos de Rede</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Suporte</h3>
+                    <p><a href="#faq">Perguntas Frequentes</a></p>
+                    <p><a href="#contact">Contato Técnico</a></p>
+                    <p><a href="#coverage">Área de Cobertura</a></p>
+                    <p><a href="#contact">Solicitar Visita</a></p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <p>📍 Luanda, Angola</p>
-                    <p>📞 +244 XXX XXX XXX</p>
+                    <p>📍 Rua Principal, Maianga, Luanda</p>
+                    <p>📞 +244 999 999 999</p>
                     <p>✉️ contato@ntau.co.ao</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Siga-nos</h3>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Instagram</a></p>
-                    <p><a href="#">LinkedIn</a></p>
+                    <p>🌐 www.ntau.co.ao</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 NTAU Prestadora de Serviço. Todos os direitos reservados.</p>
+                <p>&copy; 2025 NTAU - Provedora de Internet. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
