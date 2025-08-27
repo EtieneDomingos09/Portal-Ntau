@@ -9,7 +9,53 @@ function closeMobileMenu() {
   mobileNav.classList.remove("active");
 }
 
-// Smooth scrolling for navigation links
+// Slideshow automático
+let currentSlide = 0;
+const slides = document.querySelectorAll(".hero-slide");
+const indicators = document.querySelectorAll(".indicator");
+const totalSlides = slides.length;
+
+function showSlide(index) {
+  slides.forEach((slide) => slide.classList.remove("active"));
+  indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+  slides[index].classList.add("active");
+  indicators[index].classList.add("active");
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
+
+// Auto slideshow
+setInterval(nextSlide, 5000);
+
+// Click indicators
+indicators.forEach((indicator, index) => {
+  indicator.addEventListener("click", () => {
+    currentSlide = index;
+    showSlide(currentSlide);
+  });
+});
+
+// Header scroll effect
+function handleScroll() {
+  const header = document.getElementById("header");
+  const heroSection = document.querySelector(".hero");
+  const heroHeight = heroSection.offsetHeight;
+  const scrollY = window.scrollY;
+
+  if (scrollY > heroHeight * 0.8) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+}
+
+window.addEventListener("scroll", handleScroll);
+
+// Smooth scrolling para links internos
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -21,18 +67,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       });
     }
   });
-});
-
-// Header scroll effect
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".header");
-  if (window.scrollY > 100) {
-    header.style.background = "rgba(255, 255, 255, 0.98)";
-    header.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
-  } else {
-    header.style.background = "rgba(255, 255, 255, 0.95)";
-    header.style.boxShadow = "none";
-  }
 });
 
 // Intersection Observer for fade-in animations
@@ -49,7 +83,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe all fade-in elements
 document.querySelectorAll(".fade-in").forEach((el) => {
   observer.observe(el);
 });
@@ -79,19 +112,19 @@ function animateCounters() {
 
 // Trigger counter animation when stats section is visible
 const statsSection = document.querySelector(".stats");
-const statsObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateCounters();
-        statsObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
-
 if (statsSection) {
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
   statsObserver.observe(statsSection);
 }
 
@@ -100,12 +133,10 @@ function toggleFaq(button) {
   const faqItem = button.parentElement;
   const isActive = faqItem.classList.contains("active");
 
-  // Close all FAQ items
   document.querySelectorAll(".faq-item").forEach((item) => {
     item.classList.remove("active");
   });
 
-  // Open clicked item if it wasn't active
   if (!isActive) {
     faqItem.classList.add("active");
   }
@@ -120,24 +151,21 @@ function handleSubmit(event) {
   const phone = formData.get("phone");
   const service = formData.get("service");
 
-  // Create WhatsApp message
   const message = `Olá! Meu nome é ${name}.
-            
+
 Gostaria de solicitar informações sobre: ${service}
-            
+
 Telefone para contato: ${phone}
-            
+
 Mensagem: ${formData.get("message")}`;
 
   const whatsappUrl = `https://wa.me/244999999999?text=${encodeURIComponent(
     message
   )}`;
 
-  // Show success message
   alert("Redirecionando para WhatsApp...");
   window.open(whatsappUrl, "_blank");
 
-  // Reset form
   event.target.reset();
 }
 
