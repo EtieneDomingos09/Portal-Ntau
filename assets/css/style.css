@@ -80,11 +80,6 @@ body {
   border-radius: 8px;
   position: relative;
 }
-.logo-text{
-  font-family: 'ClashGrotesk', sans-serif;
-  font-weight: 900;
-  font-size: 1.5rem;
-}
 
 /* Efeito hover no logo */
 .logo:hover {
