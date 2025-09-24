@@ -829,7 +829,7 @@ h1, h2, h3{
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1.5rem;
   color: var(--medium-gray);
@@ -845,6 +845,7 @@ h1, h2, h3{
   justify-content: center;
   color: white;
   font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
 .contact-form {
@@ -930,6 +931,14 @@ h1, h2, h3{
   justify-content: center;
   font-size: 4rem;
   color: white;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 /* CTA Section */
@@ -1021,94 +1030,6 @@ h1, h2, h3{
   transform: translateY(0);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav{
-    padding: 1rem;
-  }
-  .nav-links {
-    display: none;
-  }
-  .hero {
-    padding: 0 1rem;
-    height: 100vh;
-  }
-  .br{
-    display: none;
-  }
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-  }
-  .hero-content{
-    margin-top: 8rem;
-    padding-bottom: 5rem;
-  }
-
-  .services-grid,
-  .plans-grid,
-  .coverage-grid,
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-content,
-  .contact-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  .cta-buttons .btn{
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .plan-card.popular {
-    transform: none;
-  }
-
-  .plan-card.popular:hover {
-    transform: translateY(-5px);
-  }
-
-  .slideshow-indicators {
-    bottom: 20px;
-  }
-  .contact-item{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .indicator {
-    width: 10px;
-    height: 10px;
-  }
-}
-
-
-
-/* Passo 3: Adicionar estes estilos ao seu arquivo assets/css/style.css */
-
 /* Estilos para os botões de filtro - versão mais limpa */
 .plan-filters {
   display: flex;
@@ -1130,7 +1051,6 @@ h1, h2, h3{
   transition: all 0.3s ease;
 }
 
-/* Estados hover e active mais sutis */
 .filter-btn:hover {
   border-color: var(--primary-orange);
   color: var(--primary-orange);
@@ -1140,74 +1060,6 @@ h1, h2, h3{
   background: var(--primary-orange);
   color: white;
   border-color: var(--primary-orange);
-}
-
-/* Usar os estilos dos seus cards originais */
-.plans-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 4rem;
-}
-
-.plan-card {
-  background: white;
-  border-radius: 20px;
-  padding: 2.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  border: 2px solid transparent;
-  opacity: 1;
-}
-
-.plan-card.popular {
-  border-color: var(--primary-orange);
-  transform: scale(1.05);
-}
-
-.plan-card.popular::before {
-  content: "Mais Popular";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--primary-orange);
-  color: white;
-  padding: 5px 20px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.plan-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.plan-card.popular:hover {
-  transform: scale(1.05) translateY(-5px);
-}
-
-.plan-name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--dark-color);
-  margin-bottom: 1rem;
-}
-
-.plan-speed {
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--primary-orange);
-  margin-bottom: 0.5rem;
-}
-
-.plan-price {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--dark-color);
-  margin-bottom: 2rem;
 }
 
 .plan-features {
@@ -1236,7 +1088,6 @@ h1, h2, h3{
   margin-top: 0.1rem;
 }
 
-/* Estilo especial para a descrição (último item) */
 .plan-features li:last-child {
   margin-top: 0.5rem;
   padding-top: 1rem;
@@ -1251,7 +1102,6 @@ h1, h2, h3{
   display: none;
 }
 
-/* Estados de transição mais suaves */
 .plan-card.hiding {
   opacity: 0;
   pointer-events: none;
@@ -1263,7 +1113,6 @@ h1, h2, h3{
   animation: fadeIn 0.5s ease forwards;
 }
 
-/* Animação mais sutil */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1273,7 +1122,6 @@ h1, h2, h3{
   }
 }
 
-/* Loading state simples */
 .loading-plans {
   text-align: center;
   padding: 3rem;
@@ -1285,22 +1133,657 @@ h1, h2, h3{
   color: var(--medium-gray);
 }
 
-/* Responsivo para os filtros */
-@media (max-width: 768px) {
-  .filter-btn {
-    padding: 0.8rem 1.5rem;
+/* RESPONSIVO APRIMORADO - Mobile First Approach */
+@media (max-width: 480px) {
+  /* Header mobile pequeno */
+  .nav {
+    padding: 0.8rem 1rem;
+  }
+  
+  .logo {
+    font-size: 1.4rem;
+    gap: 8px;
+  }
+  
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Hero mobile pequeno */
+  .hero {
+    padding: 0 1rem;
+    min-height: 100vh;
+  }
+  
+  .hero-content {
+    margin-top: 6rem;
+    padding: 1rem 0 4rem 0;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  /* Botões CTA mobile */
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+    padding: 1rem;
+    justify-content: center;
     font-size: 1rem;
   }
   
-  .plan-filters {
-    gap: 0.5rem;
+  /* Seções com padding reduzido */
+  .services,
+  .plans,
+  .coverage,
+  .testimonials,
+  .faq,
+  .contact,
+  .about {
+    padding: 4rem 1rem;
   }
   
-  .plan-card.popular {
+  /* Títulos de seção menores */
+  .section-title h2 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Services grid mobile */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .service-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Plans mobile */
+  .plan-filters {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .filter-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+  
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .plan-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .plan-card.popular,
+  .plan-card.recomendacao {
+    transform: none;
+    margin-bottom: 1rem;
+  }
+  
+  .plan-card.popular:hover,
+  .plan-card.recomendacao:hover {
+    transform: translateY(-5px);
+  }
+  
+  .plan-speed {
+    font-size: 2.5rem;
+  }
+  
+  .plan-price {
+    font-size: 1.5rem;
+  }
+  
+  /* Coverage mobile */
+  .coverage-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .coverage-area {
+    padding: 1.5rem;
+  }
+  
+  /* Stats mobile */
+  .stats {
+    padding: 4rem 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .stat-item h3 {
+    font-size: 1.5rem;
+  }
+  
+  .stat-item p {
+    font-size: 0.9rem;
+  }
+  
+  /* Testimonials mobile */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .testimonial-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* FAQ mobile */
+  .faq-list {
+    margin: 2rem auto 0;
+  }
+  
+  .faq-question {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: 1rem;
+  }
+  
+  /* Contact mobile */
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: left;
+  }
+  
+  .contact-item {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  /* About mobile */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: left;
+  }
+  
+  .about-text h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .about-image {
+    height: 250px;
+    margin-top: 1rem;
+  }
+  
+  /* CTA Section mobile */
+  .cta-section {
+    padding: 4rem 1rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Footer mobile */
+  .footer {
+    padding: 3rem 1rem 2rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .footer-section h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .footer-section p,
+  .footer-section a {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  /* WhatsApp button mobile */
+  .whatsapp-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 12px;
+  }
+  
+  .whatsapp-btn svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Slideshow indicators mobile */
+  .slideshow-indicators {
+    bottom: 15px;
+    gap: 8px;
+  }
+  
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  /* Mobile navigation adjustments */
+  .mobile-nav.active {
+    top: 70px;
+  }
+  
+  .mobile-nav ul {
+    padding: 1.5rem;
+  }
+  
+  .mobile-nav li {
+    margin-bottom: 0.8rem;
+  }
+  
+  .mobile-nav a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  /* Tablet pequeno / Mobile grande */
+  .nav {
+    padding: 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .hero {
+    padding: 0 1.5rem;
+    height: 100vh;
+  }
+  
+  .br {
+    display: none;
+  }
+  
+  .hero-content {
+    margin-top: 7rem;
+    padding-bottom: 4rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Grids responsivos para tablet */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .plans-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .coverage-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-content,
+  .contact-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .contact-item {
+    justify-content: center;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .plan-card.popular,
+  .plan-card.recomendacao {
     transform: none;
   }
-
-  .plan-card.popular:hover {
+  
+  .plan-card.popular:hover,
+  .plan-card.recomendacao:hover {
     transform: translateY(-5px);
+  }
+  
+  .slideshow-indicators {
+    bottom: 20px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Seções com padding ajustado */
+  .services,
+  .plans,
+  .coverage,
+  .testimonials,
+  .faq,
+  .contact,
+  .about {
+    padding: 6rem 2rem;
+  }
+  
+  .stats,
+  .cta-section {
+    padding: 5rem 2rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Tablet grande */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .plans-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .coverage-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .contact-content {
+    gap: 3rem;
+  }
+  
+  .about-content {
+    gap: 3rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Melhorias gerais de acessibilidade e UX */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .hero-slide {
+    transition: none;
+  }
+}
+
+/* Ajustes para telas muito pequenas (smartwatches, etc.) */
+@media (max-width: 320px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+  
+  .section-title h2 {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .service-card,
+  .plan-card,
+  .testimonial-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .contact-form {
+    padding: 1rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Ajustes para orientação landscape em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 6rem 2rem 2rem;
+  }
+  
+  .hero-content {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .slideshow-indicators {
+    bottom: 10px;
+  }
+}
+
+/* =================================
+   CORREÇÃO MENU MOBILE - ADICIONAR NO FINAL
+   ================================= */
+
+   
+/* REGRAS GERAIS - aplicadas em todas as resoluções */
+.mobile-menu-btn {
+  display: none; /* Escondido por padrão */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.header.scrolled .mobile-menu-btn {
+  color: var(--dark-color);
+}
+
+/* DESKTOP - mostrar navegação normal */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex;
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: none !important;
+  }
+}
+
+/* TABLET E MOBILE - esconder navegação normal e mostrar hambúrguer */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block; /* IMPORTANTE: mostrar o botão */
+  }
+  
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: top 0.3s ease;
+  }
+  
+  .mobile-nav.active {
+    top: 80px;
+    display: block;
+  }
+  
+  .mobile-nav ul {
+    list-style: none;
+    padding: 2rem;
+  }
+  
+  .mobile-nav li {
+    margin-bottom: 1rem;
+  }
+  
+  .mobile-nav a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+/* MOBILE PEQUENO - ajustes específicos */
+@media (max-width: 480px) {
+  .mobile-nav.active {
+    top: 70px; /* Ajuste para headers menores */
+  }
+  
+  .mobile-nav ul {
+    padding: 1.5rem;
+  }
+  
+  .mobile-nav li {
+    margin-bottom: 0.8rem;
+  }
+  
+  .mobile-nav a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    display: block;
   }
 }
