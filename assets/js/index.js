@@ -349,7 +349,7 @@ function initializePlans() {
   renderPlans(currentPlanType);
 }
 
-// Passo 5: Adicionar a função principal de troca de filtros
+// função principal de troca de filtros
 
 function switchPlanType(newType) {
   // Evita executar se já é o tipo atual
@@ -422,7 +422,7 @@ function renderPlansWithLoading(planType) {
   }, 300);
 }
 
-// Versão melhorada da função principal
+// função principal
 function switchPlanTypeImproved(newType) {
   if (newType === currentPlanType) return;
   
