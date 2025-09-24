@@ -296,29 +296,23 @@ let currentPlanType = 'mensal';
 
 
 // Função para criar um card de plano individual
+// Passo 4: Adicionar estas funções ao seu assets/js/index.js
+
+// Função para criar um card de plano individual - estilo mais organizado
 function createPlanCard(plan, index) {
   return `
-    <div class="plan-card ${plan.popular ? 'popular' : ''} showing" style="animation-delay: ${index * 0.1}s">
+    <div class="plan-card ${plan.popular ? 'popular' : ''} showing">
       <div class="plan-name">${plan.name}</div>
-      
-      <!-- Nova estrutura para mostrar velocidades -->
-      <div class="plan-speeds">
-        <div class="speed-item">
-          <span class="speed-label">Download</span>
-          <span class="speed-value">${plan.download}</span>
-        </div>
-        <div class="speed-item">
-          <span class="speed-label">Upload</span>
-          <span class="speed-value">${plan.upload}</span>
-        </div>
-      </div>
-      
+      <div class="plan-speed">${plan.download.replace(' Mbps', '')} Mbps</div>
       <div class="plan-price">${plan.price}</div>
-      <div class="plan-description">${plan.description}</div>
       
-      <a href="#contact" class="btn btn-primary">
-        <span>Contratar Agora →</span>
-      </a>
+      <ul class="plan-features">
+        <li>Velocidade de download: <strong>${plan.download}</strong></li>
+        <li>Velocidade de upload: <strong>${plan.upload}</strong></li>
+        <li>${plan.description}</li>
+      </ul>
+      
+      <a href="#contact" class="btn btn-primary">Contratar Agora →</a>
     </div>
   `;
 }
@@ -340,16 +334,7 @@ function renderPlans(planType) {
   // Insere os cards no DOM
   plansGrid.innerHTML = cardsHTML;
   
-  // Aplica animações escalonadas
-  const cards = plansGrid.querySelectorAll('.plan-card');
-  cards.forEach((card, index) => {
-    // Remove a classe showing para reaplicar a animação
-    setTimeout(() => {
-      card.classList.remove('showing');
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, (index * 100) + 500); // Delay escalonado
-  });
+  console.log(`✅ Renderizados ${plans.length} planos do tipo: ${planType}`);
 }
 
 // Função utilitária para debug (opcional)
